@@ -13,6 +13,6 @@ $(call inherit-product, device/manta/mid08/device_mid08.mk)
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mid08
 PRODUCT_NAME := cm_mid08
-PRODUCT_BRAND := manta
-PRODUCT_MODEL := mid08
-PRODUCT_MANUFACTURER := manta
+PRODUCT_BRAND := Manta
+PRODUCT_MODEL := MID08
+PRODUCT_MANUFACTURER := Manta
