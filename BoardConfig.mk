@@ -11,7 +11,6 @@ USE_CAMERA_STUB := false
 HAVE_HTC_AUDIO_DRIVER := true
 BOARD_USES_GENERIC_AUDIO := true
 BOARD_USES_GPS_TYPE := simulator
-COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB
 
 #CPU
 TARGET_CPU_ABI := armeabi-v7a
@@ -62,6 +61,9 @@ BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/fi
 #BOARD_HAS_NO_SELECT_BUTTON := true
 # Use this flag if the board has a ext4 partition larger than 2gb
 #BOARD_HAS_LARGE_FILESYSTEM := true
+
+
+BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Wifi 
 BOARD_WIFI_VENDOR := realtek

@@ -43,7 +43,7 @@
 //#define F_LOG LOGV("%s, line: %d", __FUNCTION__, __LINE__);
 #define F_LOG LOGV("########## %s ##########", __FUNCTION__);
 
-/* Sun5i Mixer Controls. TODO: implement Mic mute and Master Volume control
+/* Sun4i Mixer Controls. TODO: implement Mic mute and Master Volume control
 ctl type    num name                                     value range
 0   INT     1   Master Playback Volume                   (0->63) 59
 1   BOOL    1   Playback Switch                          (0/1) off

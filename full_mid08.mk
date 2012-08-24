@@ -14,7 +14,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, device/manta/mid08/mid08.mk)
+$(call inherit-product, device/manta/mid08/device_mid08.mk)
 $(call inherit-product, device/manta/mid08/libraries/Android.mk)
 $(call inherit-product, device/manta/mid08/packages/Android.mk)
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)

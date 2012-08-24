@@ -56,6 +56,78 @@ PRODUCT_COPY_FILES += \device/manta/mid08/prebuilt/lib/egl/libEGL_mali.so:system
 	device/manta/mid08/prebuilt/lib/libicui18n_ics.so:obj/lib/libicui18n_ics.so \
 	device/manta/mid08/prebuilt/lib/libicuuc_ics.so:system/lib/libicuuc_ics.so \
 	device/manta/mid08/prebuilt/lib/libicuuc_ics.so:obj/lib/libicuuc_ics.so
+	
+# /system/lib/modules
+PRODUCT_COPY_FILES += \device/manta/mid08/prebuilt/lib/modules/8192cu.ko:system/lib/modules/8192cu.ko \
+			device/manta/mid08/prebuilt/lib/modules/Module.symvers:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/RT2870STA.dat:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/RT2870STACard.dat:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/asix.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/bcm4330.bin:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/bcm4330.hc:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/bcm4330.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/bcm4330_nvram.txt:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/bma250.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/cedarx.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/cypress_cy7c63.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/example.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/ft5x_ts.ko:system/lib/modules/ \
+			device/manta/mid08/prebuilt/lib/modules/gc0307.ko:system/lib/modules/
+			device/manta/mid08/prebuilt/lib/modules/gc0308.ko:system/lib/modules/
+			device/manta/mid08/prebuilt/lib/modules/gc0309.ko
+			device/manta/mid08/prebuilt/lib/modules/gc0329.ko
+			device/manta/mid08/prebuilt/lib/modules/gc2015.ko
+			device/manta/mid08/prebuilt/lib/modules/goodix_touch.ko
+			device/manta/mid08/prebuilt/lib/modules/gt2005.ko
+			device/manta/mid08/prebuilt/lib/modules/gt818_ts.ko
+			device/manta/mid08/prebuilt/lib/modules/hi253.ko
+			device/manta/mid08/prebuilt/lib/modules/hi704.ko
+			device/manta/mid08/prebuilt/lib/modules/hv2605.ko
+			device/manta/mid08/prebuilt/lib/modules/mali.ko
+			device/manta/mid08/prebuilt/lib/modules/mcs7830.ko
+			device/manta/mid08/prebuilt/lib/modules/mecs.ko
+			device/manta/mid08/prebuilt/lib/modules/mma7660.ko
+			device/manta/mid08/prebuilt/lib/modules/mt9d112.ko
+			device/manta/mid08/prebuilt/lib/modules/mt9m112.ko
+			device/manta/mid08/prebuilt/lib/modules/mt9m113.ko
+			device/manta/mid08/prebuilt/lib/modules/mxc622x.ko
+			device/manta/mid08/prebuilt/lib/modules/ov2643.ko
+			device/manta/mid08/prebuilt/lib/modules/ov2655.ko
+			device/manta/mid08/prebuilt/lib/modules/ov5640.ko
+			device/manta/mid08/prebuilt/lib/modules/ov7670.ko
+			device/manta/mid08/prebuilt/lib/modules/pktgen.ko
+			device/manta/mid08/prebuilt/lib/modules/qf9700.ko
+			device/manta/mid08/prebuilt/lib/modules/rt5370sta.ko
+			device/manta/mid08/prebuilt/lib/modules/rtl8150.ko
+			device/manta/mid08/prebuilt/lib/modules/scsi_wait_scan.ko
+			device/manta/mid08/prebuilt/lib/modules/sndi2s.ko
+			device/manta/mid08/prebuilt/lib/modules/sndspdif.ko
+			device/manta/mid08/prebuilt/lib/modules/sp0838.ko
+			device/manta/mid08/prebuilt/lib/modules/sun4i-keyboard.ko
+			device/manta/mid08/prebuilt/lib/modules/sun4i-keypad.ko
+			device/manta/mid08/prebuilt/lib/modules/sun4i-ts.ko
+			device/manta/mid08/prebuilt/lib/modules/sun4i-vibrator.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i-i2s.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i-i2sdma.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i-ir.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i-sndi2s.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i_csi0.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i_sndspdif.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i_spdif.ko
+			device/manta/mid08/prebuilt/lib/modules/sun5i_spdma.ko
+			device/manta/mid08/prebuilt/lib/modules/sunxi-dbgreg.ko
+			device/manta/mid08/prebuilt/lib/modules/sw-keyboard.ko
+			device/manta/mid08/prebuilt/lib/modules/sw-ts.ko
+			device/manta/mid08/prebuilt/lib/modules/tea5761.ko
+			device/manta/mid08/prebuilt/lib/modules/ump.ko
+			device/manta/mid08/prebuilt/lib/modules/usbnet.ko
+			device/manta/mid08/prebuilt/lib/modules/usi4329_dhd.ko
+			device/manta/mid08/prebuilt/lib/modules/usi4329_fw.bin
+			device/manta/mid08/prebuilt/lib/modules/usi4329_nvram.txt
+			device/manta/mid08/prebuilt/lib/modules/videobuf-core.ko
+			device/manta/mid08/prebuilt/lib/modules/videobuf-dma-contig.ko
+			device/manta/mid08/prebuilt/lib/modules/zt8031.ko
+
 
 # /system/usr
 PRODUCT_COPY_FILES += \

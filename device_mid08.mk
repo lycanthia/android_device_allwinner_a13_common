@@ -5,7 +5,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/manta/mid08/mid08-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/manta/mid08/overlay
 
 LOCAL_PATH := device/manta/mid08
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -23,12 +22,17 @@ PRODUCT_COPY_FILES := \
 	device/manta/mid08/init.sun5i.rc:root/init.sun5i.rc \
 	device/manta/mid08/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
 	device/manta/mid08/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
-	
+		
 PRODUCT_COPY_FILES := \
 	device/manta/mid08/prebuilt/modules/sw-keyboard.ko:/root/lib/modules/sw-keyboard.ko \
-	device/manta/mid08/prebuilt/modules/ft5x_ts.ko:/root/lib/modules/ft5x_ts.ko
+	device/manta/mid08/prebuilt/modules/ft5x_ts.ko:/root/lib/modules/ft5x_ts.ko \
+	device/manta/mid08/init.rc:root/init.rc \
+	device/manta/mid08/initlogo.rle:root/initlogo.rle \
+	device/manta/mid08/init.sun5i.rc:root/init.sun5i.rc \
+	device/manta/mid08/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
+	device/manta/mid08/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
 
-	PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_CHARACTERISTICS := tablet
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -40,8 +44,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	hwui.render_dirty_regions=false \
 	wifi.interface = wlan0 \
 	wifi.supplicant_scan_interval = 150 \
-	persist.sys.strictmode.visual=0 \
-	persist.sys.strictmode.disable=1 \
 	persist.sys.usb.config=mass_storage,adb \
 	dalvik.vm.verify-bytecode=false \
 	dalvik.vm.dexopt-flags=v=n,o=v \
@@ -75,7 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
 	persist.sys.vold.switchexternal=0
 
-DEVICE_PACKAGE_OVERLAYS := device/softwinner/907/overlay
+DEVICE_PACKAGE_OVERLAYS += device/manta/mid08/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -109,40 +111,56 @@ PRODUCT_PACKAGES += \
 
 # Hardware libs
 PRODUCT_PACKAGES += \
-	gralloc.sun4i \
-	hwcomposer.exDroid \
-	power.sun4i \
-	lights.sun4i \
-	display.sun4i \
-        libcedarxbase \
-        libcedarxosal \
-        libcedarxsftdemux \
-        libcedarv \
-	libCedarA \
-	libCedarX \
-	libstagefright_soft_cedar_h264dec \
-        libswdrm \
-	audio.primary.exDroid \
-	audio.a2dp.default \
-	audio.usb.default \
-	libaudioutils \
+	gps.sun5i \
+	libjni_mosaic \
 	chat \
 	u3gmonitor \
-	devlistener \
-	LegacyCamera \
-	libjni_legacymosaic
+	devlistener
+
+# Other stuff
+PRODUCT_PACKAGES += librs_jni rild_sun5i 
+
+# EGL stuff
+PRODUCT_PACKAGES += gralloc.sun5i hwcomposer.sun5i display.sun5i 
+
+# Sensors
+PRODUCT_PACKAGES += lights.sun5i sensors.sun5i
+
+# ICS Camera
+PRODUCT_PACKAGES += camera.sun5i
 
 # CM9 apps
-PRODUCT_PACKAGES += \
-	com.android.future.usb.accessory
+PRODUCT_PACKAGES += FileManager com.android.future.usb.accessory
+
+# EXT4 Support
+PRODUCT_PACKAGES += make_ext4fs e2fsck
+		
+# Audio stuff
+PRODUCT_PACKAGES += audio.a2dp.default libaudioutils libtinyalsa audio_policy.sun5i audio.primary.sun5i	
+
+# CedarX libraries
+PRODUCT_PACKAGES += libCedarA libCedarX libcedarv libcedarxbase libcedarxosal libswdrm libcedarxsftdemux
+
+
+# Should be after the full_base include, which loads languages_full
+PRODUCT_LOCALES += mdpi	
+
+PRODUCT_CHARACTERISTICS := tablet
 
 # EXT4 Support
 PRODUCT_PACKAGES += \
 	make_ext4fs \
 	e2fsck
-	
+$(call inherit-product, device/manta/mid08/libraries/Android.mk)
+$(call inherit-product, device/manta/mid08/packages/Android.mk)
+$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
+$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product-if-exists, vendor/manta/mid08/mid08-vendor.mk)	
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_mid08
 PRODUCT_DEVICE := mid08
+PRODUCT_BRAND := Manta
+PRODUCT_MODEL := MID08
+PRODUCT_MANUFACTURER := Manta
