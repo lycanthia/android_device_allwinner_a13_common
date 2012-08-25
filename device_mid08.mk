@@ -33,7 +33,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version = 131072 \
 	debug.egl.hw=1 \
 	ro.display.switch=1 \
-	ro.sf.lcd_density=120 \
+	ro.sf.lcd_density=160 \
 	hwui.render_dirty_regions=false \
 	wifi.interface = wlan0 \
 	wifi.supplicant_scan_interval = 150 \
@@ -74,22 +74,21 @@ DEVICE_PACKAGE_OVERLAYS += device/manta/mid08/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
-	frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
-	frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-	frameworks/base/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-	frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-	frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-	frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-	frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-	frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-	frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-	frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-	frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-	frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
-	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+	frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+	frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+	frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml \
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_PACKAGES += \
@@ -111,7 +110,7 @@ PRODUCT_PACKAGES += \
 	devlistener
 
 # Other stuff
-PRODUCT_PACKAGES += librs_jni rild_sun5i 
+PRODUCT_PACKAGES += librs_jni rild_sun5i power.sun5i
 
 # EGL stuff
 PRODUCT_PACKAGES += gralloc.sun5i hwcomposer.sun5i display.sun5i 
@@ -127,12 +126,14 @@ PRODUCT_PACKAGES += FileManager com.android.future.usb.accessory
 
 # EXT4 Support
 PRODUCT_PACKAGES += make_ext4fs e2fsck
-		
+
 # Audio stuff
-PRODUCT_PACKAGES += audio.a2dp.default libaudioutils libtinyalsa audio_policy.sun5i audio.primary.sun5i	
+PRODUCT_PACKAGES += audio.a2dp.default libaudioutils libtinyalsa audio_policy.sun5i audio.primary.sun5i audio.usb.default
 
 # CedarX libraries
 PRODUCT_PACKAGES += libCedarA libCedarX libcedarv libcedarxbase libcedarxosal libswdrm libcedarxsftdemux
+PRODUCT_PACKAGES += libcedarv_adapter libve libfacedetection libaw_audio libaw_audioa libcedarv_base
+PRODUCT_PACKAGES += libstagefright_soft_cedar_h264dec librtmp
 
 
 # Should be after the full_base include, which loads languages_full
@@ -146,8 +147,7 @@ PRODUCT_PACKAGES += \
 	e2fsck
 $(call inherit-product, device/manta/mid08/libraries/Android.mk)
 $(call inherit-product, device/manta/mid08/packages/Android.mk)
-$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/manta/mid08/mid08-vendor.mk)	
 $(call inherit-product, build/target/product/full.mk)
 
