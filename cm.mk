@@ -13,7 +13,7 @@ $(call inherit-product, device/manta/mid08/device_mid08.mk)
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
-TARGET_BOOTANIMATION_NAME := vertical-480x800
+TARGET_BOOTANIMATION_NAME := horizontal-800
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mid08
