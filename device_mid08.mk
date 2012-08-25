@@ -17,13 +17,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES := \
-	device/manta/mid08/ramdisk/init.rc:root/init.rc \
-	device/manta/mid08/ramdisk/initlogo.rle:root/initlogo.rle \
-	device/manta/mid08/ramdisk/init.sun5i.rc:root/init.sun5i.rc \
-	device/manta/mid08/ramdisk/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
-	device/manta/mid08/ramdisk/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
-		
-PRODUCT_COPY_FILES := \
 	device/manta/mid08/ramdisk/modules/sw-keyboard.ko:/root/lib/modules/sw-keyboard.ko \
 	device/manta/mid08/ramdisk/modules/ft5x_ts.ko:/root/lib/modules/ft5x_ts.ko \
 	device/manta/mid08/ramdisk/init.rc:root/init.rc \
@@ -40,7 +33,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version = 131072 \
 	debug.egl.hw=1 \
 	ro.display.switch=1 \
-	ro.sf.lcd_density=160 \
+	ro.sf.lcd_density=120 \
 	hwui.render_dirty_regions=false \
 	wifi.interface = wlan0 \
 	wifi.supplicant_scan_interval = 150 \
