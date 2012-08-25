@@ -10,6 +10,8 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/manta/mid08/device_mid08.mk)
 
+TARGET_BOOTANIMATION_NAME := vertical-480x800
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mid08
 PRODUCT_NAME := cm_mid08
