@@ -17,20 +17,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES := \
-	device/manta/mid08/init.rc:root/init.rc \
-	device/manta/mid08/initlogo.rle:root/initlogo.rle \
-	device/manta/mid08/init.sun5i.rc:root/init.sun5i.rc \
-	device/manta/mid08/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
-	device/manta/mid08/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
+	device/manta/mid08/ramdisk/init.rc:root/init.rc \
+	device/manta/mid08/ramdisk/initlogo.rle:root/initlogo.rle \
+	device/manta/mid08/ramdisk/init.sun5i.rc:root/init.sun5i.rc \
+	device/manta/mid08/ramdisk/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
+	device/manta/mid08/ramdisk/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
 		
 PRODUCT_COPY_FILES := \
-	device/manta/mid08/prebuilt/modules/sw-keyboard.ko:/root/lib/modules/sw-keyboard.ko \
-	device/manta/mid08/prebuilt/modules/ft5x_ts.ko:/root/lib/modules/ft5x_ts.ko \
-	device/manta/mid08/init.rc:root/init.rc \
-	device/manta/mid08/initlogo.rle:root/initlogo.rle \
-	device/manta/mid08/init.sun5i.rc:root/init.sun5i.rc \
-	device/manta/mid08/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
-	device/manta/mid08/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
+	device/manta/mid08/ramdisk/modules/sw-keyboard.ko:/root/lib/modules/sw-keyboard.ko \
+	device/manta/mid08/ramdisk/modules/ft5x_ts.ko:/root/lib/modules/ft5x_ts.ko \
+	device/manta/mid08/ramdisk/init.rc:root/init.rc \
+	device/manta/mid08/ramdisk/initlogo.rle:root/initlogo.rle \
+	device/manta/mid08/ramdisk/init.sun5i.rc:root/init.sun5i.rc \
+	device/manta/mid08/ramdisk/init.sun5i.usb.rc:root/init.sun5i.usb.rc \
+	device/manta/mid08/ramdisk/ueventd.sun5i.rc:root/ueventd.sun5i.rc    
 
 PRODUCT_CHARACTERISTICS := tablet
 
