@@ -18,49 +18,25 @@
 -->
 
 <device name="Android">
-  <!-- All values are in mAh except as noted -->
   <item name="none">0</item>
-  <item name="screen.on">75</item>
-  <item name="bluetooth.active">200</item>
-  <item name="bluetooth.on">100</item>
-  <item name="screen.full">350</item>
-  <item name="wifi.on">29</item>
-  <item name="wifi.active">140</item>
-  <item name="wifi.scan">180</item>
-  <item name="dsp.audio">88</item>
-  <item name="dsp.video">88</item>
-  <item name="radio.active">0</item>
-  <!-- The current consumed by the radio when it is scanning for a signal -->
-  <item name="radio.scanning">185</item>
-  <item name="gps.on">140</item>
-  <!-- Current consumed by the radio at different signal strengths, when paging -->
-  <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
-        <value>3.4</value>
-        <value>3.4</value>
-  </array>
-  <!-- Different CPU speeds as reported in
-       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
+  <item name="screen.on">55</item>
+  <item name="screen.full">115</item>
+  <item name="wifi.on">4</item>
+  <item name="wifi.active">130</item>
+  <item name="wifi.scan">104</item>
+  <item name="dsp.audio">75</item>
+  <item name="dsp.video">75</item>
   <array name="cpu.speeds">
-      <value>60000</value>
-      <value>204000</value>
-      <value>408000</value>
-      <value>600000</value>
-      <value>816000</value>
-      <value>1008000</value>
-      <value>1200000</value>  
+    <value>1000000</value>
+    <value>600000</value>
+    <value>300000</value>
   </array>
-  <!-- Power consumption when CPU is idle -->
-  <item name="cpu.idle">5</item>
+  <!-- Power consumption in suspend -->
+  <item name="cpu.idle">4</item>
   <!-- Power consumption at different speeds -->
   <array name="cpu.active">
-      <value>115</value>
-      <value>125</value>
-      <value>135</value>
-      <value>145</value>
-      <value>165</value>
-      <value>180</value>
-      <value>200</value>
+      <value>280</value>
+      <value>182</value>
+      <value>66</value>
   </array>
-  <!-- This is the battery capacity in mAh -->
-  <item name="battery.capacity">3900</item>
 </device>
