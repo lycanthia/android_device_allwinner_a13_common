@@ -134,6 +134,11 @@ PRODUCT_PACKAGES += audio.a2dp.default libaudioutils libtinyalsa audio_policy.su
 # CedarX libraries
 PRODUCT_PACKAGES += libCedarA libCedarX libcedarv libcedarxbase libcedarxosal libswdrm libcedarxsftdemux
 
+# copy all others kernel modules under the "modules" directory to system/lib/modules
+PRODUCT_COPY_FILES += $(shell test -d vendor/manta/mid08/proprietary/lib/modules && \
+	find vendor/manta/mid08/proprietary/lib/modules -name '*.ko' \
+	-printf '%p:system/lib/modules/%f ')
+
 
 # Should be after the full_base include, which loads languages_full
 PRODUCT_LOCALES += mdpi	
