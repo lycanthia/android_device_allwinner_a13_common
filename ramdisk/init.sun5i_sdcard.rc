@@ -7,25 +7,19 @@ on early-init
         mkdir /mnt/extsd 0000 system system
         mkdir /mnt/usbhost1 0000 system system
         symlink /mnt/sdcard /sdcard
-        symlink /mnt/extsd /extsd
-        symlink /mnt/usbhost1 /usbhost
 
 on fs
-
-        symlink /dev/block/nanda /dev/block/bootloader
         symlink /dev/block/nandc /dev/block/boot
         symlink /dev/block/nandd /dev/block/system
         symlink /dev/block/nande /dev/block/data
         symlink /dev/block/nandg /dev/block/recovery
         symlink /dev/block/nandh /dev/block/cache
 
-        #exec /system/bin/e2fsck -y /dev/block/system 
-        #exec /system/bin/e2fsck -y /dev/block/data 
-        #exec /system/bin/e2fsck -y /dev/block/cache
+        mount vfat /dev/block/nandi /mnt/sdcard rw utf8 noatime nodiratime
 
-        mount ext4 /dev/block/system /system wait ro noatime nodev barrier=0 nobh data=writeback noauto_da_alloc
-        mount ext4 /dev/block/data /data wait noatime nodev barrier=0 nobh data=writeback noauto_da_alloc
-        mount ext4 /dev/block/cache /cache wait noatime nodev barrier=0 nobh data=writeback noauto_da_alloc
+        mount ext4 loop@/sdcard/multiboot/system.img /system rw noatime nodiratime
+        mount ext4 loop@/sdcard/multiboot/data.img /data rw noatime nodiratime
+        mount ext4 loop@/sdcard/multiboot/cache.img /cache rw noatime nodiratime
 
 on post-fs
 
@@ -39,37 +33,54 @@ on post-fs
         write /sys/class/rfkill/rfkill0/state 0
         setprop rw.bluetooth.status "0"
 
-on post-fs-data
-        mkdir /data/misc/wifi 0771 wifi wifi
-        mkdir /data/misc/wifi/sockets 0771 wifi wifi
-        mkdir /data/misc/dhcp 0771 dhcp dhcp
-
 on boot
+
+exec "dd if=/dev/zero count=1 | tr '\000' '\377' > /dev/block/nandf"
 
         insmod /system/lib/modules/ump.ko #Mail 400M
         insmod /system/lib/modules/mali.ko #Mail 400M
         insmod /system/lib/modules/videobuf-core.ko
         insmod /system/lib/modules/videobuf-dma-contig.ko
         insmod /system/lib/modules/mma7660.ko #Gsensor
-        insmod /system/lib/modules/gt2005.ko #Camera for Aurora v1,2
-        insmod /system/lib/modules/hi253.ko #Camera for Aurora v3
-        insmod /system/lib/modules/gc0307.ko #Camera for Explay 701
+        insmod /system/lib/modules/gt2005.ko
         insmod /system/lib/modules/sun5i_csi0.ko
         insmod /system/lib/modules/usbnet.ko #USB Internet sharing
         insmod /system/lib/modules/asix.ko
         insmod /system/lib/modules/qf9700.ko
         insmod /system/lib/modules/mcs7830.ko
-	insmod /system/lib/modules/sw-keyboard.ko  
         insmod /system/lib/modules/rtl8150.ko #Ethernet Controller
         insmod /system/lib/modules/ft5x_ts.ko #Ft5x Touchscreen 
-        insmod /system/lib/modules/ft5x_ts_v3.ko #Ft5x Touchscreen v3
         insmod /system/lib/modules/goodix_touch.ko #Goodix Touchscreen
+        insmod /system/lib/modules/btusb.ko
+        insmod /system/lib/modules/pl2303.ko
+        insmod /system/lib/modules/tun.ko
+
+        #for stock roms
+        insmod /system/vendor/modules/ump.ko #Mail 400M
+        insmod /system/vendor/modules/mali.ko #Mail 400M
+        insmod /system/vendor/modules/videobuf-core.ko
+        insmod /system/vendor/modules/videobuf-dma-contig.ko
+        insmod /system/vendor/modules/mma7660.ko #Gsensor
+        insmod /system/vendor/modules/gt2005.ko
+        insmod /system/vendor/modules/sun5i_csi0.ko
+        insmod /system/vendor/modules/usbnet.ko #USB Internet sharing
+        insmod /system/vendor/modules/asix.ko
+        insmod /system/vendor/modules/qf9700.ko
+        insmod /system/vendor/modules/mcs7830.ko
+        insmod /system/vendor/modules/rtl8150.ko #Ethernet Controller
+        insmod /system/vendor/modules/ft5x_ts.ko #Ft5x Touchscreen 
+        insmod /system/vendor/modules/goodix_touch.ko #Goodix Touchscreen
+        insmod /system/vendor/modules/btusb.ko
+        insmod /system/vendor/modules/pl2303.ko
+        insmod /system/vendor/modules/tun.ko
+
+        write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor fantasy
 
 # wifi related service
-service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -i wlan0 \
-	-c /data/misc/wifi/wpa_supplicant.conf -e /data/misc/wifi/entropy.bin
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 \
+	-c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin
     class main
-    socket wpa_wlan0 dgram 0660 wifi wifi
+    socket wpa_wlan0 dgram 660 wifi wifi
     group system wifi inet
     disabled
     oneshot
@@ -115,4 +126,6 @@ on property:service.adb.tcp.port=5555
 on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
+
+
 
