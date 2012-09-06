@@ -22,7 +22,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := mid08
 
 #EGL 
-BOARD_EGL_CFG := device/manta/mid08/prebuilt/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/manta/mid08/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_USE_SKIA_LCDTEXT := true
 ENABLE_WEBGL := true
@@ -33,7 +33,11 @@ BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_PREBUILT_KERNEL := device/manta/mid08/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := device/manta/mid08/recovery/recovery-kernel
+#TARGET_KERNEL_SOURCE := $(ANDROID_BUILD_TOP)/kernel/
+#TARGET_KERNEL_CONFIG := sun5i_defconfig
+#TARGET_KERNEL_MODULES_EXT := $(ANDROID_BUILD_TOP)/vendor/manta/mid08/proprietary/lib/modules
+
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/manta/mid08/recovery/recovery-kernel
 
 TARGET_PROVIDES_INIT_RC := true
 TARGET_BOOTANIMATION_PRELOAD := true
