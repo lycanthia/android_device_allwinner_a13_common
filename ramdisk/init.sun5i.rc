@@ -59,11 +59,16 @@ on boot
         insmod /system/lib/modules/asix.ko
         insmod /system/lib/modules/qf9700.ko
         insmod /system/lib/modules/mcs7830.ko
+        insmod /system/lib/modules/sr9600.ko	
 	insmod /system/lib/modules/sw-keyboard.ko  
         insmod /system/lib/modules/rtl8150.ko #Ethernet Controller
         insmod /system/lib/modules/ft5x_ts.ko #Ft5x Touchscreen 
         insmod /system/lib/modules/ft5x_ts_v3.ko #Ft5x Touchscreen v3
+	insmod /system/lib/modules/goodix_touch.ko #Goodix Touchscreen
         insmod /system/lib/modules/goodix_touch.ko #Goodix Touchscreen
+	insmod /system/lib/modules/mecs.ko
+	insmod /system/lib/modules/mxc622x.ko
+	
 
 # wifi related service
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -i wlan0 \
