@@ -5,10 +5,10 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 PRODUCT_RELEASE_NAME := a13
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/Allwinner/a13/device_a13.mk)
+$(call inherit-product, device/Allwinner/a13/device.mk)
 
 TARGET_BOOTANIMATION_NAME := vertical-480x800
 

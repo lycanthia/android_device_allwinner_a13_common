@@ -14,7 +14,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-$(call inherit-product, device/allwinner/a13/device_a13.mk)
+$(call inherit-product, device/allwinner/a13/device.mk)
 $(call inherit-product, device/allwinner/a13/libraries/Android.mk)
 $(call inherit-product, device/allwinner/a13/packages/Android.mk)
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)

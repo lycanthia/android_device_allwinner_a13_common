@@ -3,8 +3,8 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/allwinner/a13/BoardConfigVendor.mk
 
-TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := allwinner
+TARGET_BOOTLOADER_BOARD_NAME := a13
+TARGET_BOARD_PLATFORM := sun5i
 
 
 USE_CAMERA_STUB := false
