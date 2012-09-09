@@ -1,10 +1,10 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/manta/mid08/BoardConfigVendor.mk
+-include vendor/allwinner/a13/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := Manta
+TARGET_BOARD_PLATFORM := allwinner
 
 
 USE_CAMERA_STUB := false
@@ -19,10 +19,10 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_BOOTLOADER_BOARD_NAME := mid08
+TARGET_BOOTLOADER_BOARD_NAME := a13
 
 #EGL 
-BOARD_EGL_CFG := device/manta/mid08/egl.cfg
+BOARD_EGL_CFG := device/allwinner/a13/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_USE_SKIA_LCDTEXT := true
 ENABLE_WEBGL := true
@@ -32,12 +32,12 @@ BOARD_KERNEL_CMDLINE := console=ttyS0,115200 rw init=/init loglevel=8
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-TARGET_PREBUILT_KERNEL := device/manta/mid08/kernel
+TARGET_PREBUILT_KERNEL := device/allwinner/a13/kernel
 #TARGET_KERNEL_SOURCE := $(ANDROID_BUILD_TOP)/kernel/
 #TARGET_KERNEL_CONFIG := sun5i_defconfig
-#TARGET_KERNEL_MODULES_EXT := $(ANDROID_BUILD_TOP)/vendor/manta/mid08/proprietary/lib/modules
+#TARGET_KERNEL_MODULES_EXT := $(ANDROID_BUILD_TOP)/vendor/allwinner/a13/proprietary/lib/modules
 
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/manta/mid08/recovery/recovery-kernel
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/allwinner/a13/recovery/recovery-kernel
 
 TARGET_PROVIDES_INIT_RC := true
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -51,13 +51,13 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 #Include
-TARGET_HARDWARE_INCLUDE := $(TOP)/device/manta/mid08/libraries/include
+TARGET_HARDWARE_INCLUDE := $(TOP)/device/allwinner/a13/libraries/include
 
 
 #Recovery
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/manta/mid08/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/allwinner/a13/recovery/recovery_keys.c
 TARGET_RECOVERY_PRE_COMMAND := "echo -n boot-recovery | busybox dd of=/dev/block/nandf count=1 conv=sync; sync"
-TARGET_RECOVERY_INITRC := device/manta/mid08/recovery/recovery_init.rc
+TARGET_RECOVERY_INITRC := device/allwinner/a13/recovery/recovery_init.rc
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun/file"
 BOARD_UMS_2ND_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
 #BOARD_TOUCH_RECOVERY := true

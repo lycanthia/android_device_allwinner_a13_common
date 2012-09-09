@@ -105,9 +105,9 @@ lib/liballwinner-ril.so
 lib/libicui18n_ics.so
 lib/libicuuc_ics.so
 
-lib/hw/camera.mid08.so
+lib/hw/camera.a13.so
 lib/hw/gralloc.sun5i.so
-lib/hw/sensors.mid08.so
+lib/hw/sensors.a13.so
 
 lib/egl/egl.cfg
 lib/egl/libEGL_mali.so

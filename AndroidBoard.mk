@@ -5,4 +5,4 @@ include $(CLEAR_VARS)
 ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 
 # include the non-open-source counterpart to this file
--include vendor/manta/mid08/AndroidBoardVendor.mk
+-include vendor/allwinner/a13/AndroidBoardVendor.mk
