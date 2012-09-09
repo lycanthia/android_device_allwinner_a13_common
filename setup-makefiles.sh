@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE=mid08
-MANUFACTURER=manta
+DEVICE=a13
+MANUFACTURER=allwinner
 
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE
 
