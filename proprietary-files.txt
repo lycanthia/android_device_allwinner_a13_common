@@ -1,3 +1,4 @@
+lib/modules/8188eu.ko
 lib/modules/8192cu.ko
 lib/modules/Module.symvers
 lib/modules/RT2870STA.dat
@@ -8,8 +9,12 @@ lib/modules/bcm4330.hcd
 lib/modules/bcm4330.ko
 lib/modules/bcm4330_nvram.txt
 lib/modules/bma250.ko
+lib/modules/cdc_eem.ko
+lib/modules/cdc_ether.ko
+lib/modules/cdc_subset.ko
 lib/modules/cedarx.ko
 lib/modules/cypress_cy7c63.ko
+lib/modules/dmard06.ko
 lib/modules/example.ko
 lib/modules/ft5x_ts.ko
 lib/modules/gc0307.ko
@@ -19,7 +24,9 @@ lib/modules/gc0329.ko
 lib/modules/gc2015.ko
 lib/modules/goodix_touch.ko
 lib/modules/gt2005.ko
+lib/modules/gt811.ko
 lib/modules/gt818_ts.ko
+lib/modules/gt82x.ko
 lib/modules/hi253.ko
 lib/modules/hi704.ko
 lib/modules/hid-gaff.ko
@@ -50,6 +57,7 @@ lib/modules/snd-usbmidi-lib.ko
 lib/modules/sndi2s.ko
 lib/modules/sndspdif.ko
 lib/modules/sp0838.ko
+lib/modules/ssd253x-A13-ts.ko
 lib/modules/sun4i-keyboard.ko
 lib/modules/sun4i-keypad.ko
 lib/modules/sun4i-ts.ko
@@ -77,6 +85,7 @@ lib/modules/videobuf-core.ko
 lib/modules/videobuf-dma-contig.ko
 lib/modules/xpad.ko
 lib/modules/zt8031.ko
+
 
 usr/keylayout/AVRCP.kl
 usr/keylayout/Generic.kl
