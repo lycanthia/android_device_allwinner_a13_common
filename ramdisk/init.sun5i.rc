@@ -69,10 +69,15 @@ on boot
         insmod /system/lib/modules/ft5x_ts.ko #Ft5x Touchscreen 
         insmod /system/lib/modules/ft5x_ts_v3.ko #Ft5x Touchscreen v3
 	insmod /system/lib/modules/goodix_touch.ko #Goodix Touchscreen
+	
 	insmod /system/lib/modules/mecs.ko
 	insmod /system/lib/modules/mxc622x.ko
+	
 	insmod /system/lib/modules/cedarx.ko #HW video decoder
 
+   	insmod /system/lib/modules/cdc_ether.ko# usb tether function
+	insmod /system/lib/modules/cdc_eem.ko
+	insmod /system/lib/modules/cdc_subset.ko
 # wifi related service
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -i wlan0 \
 	-c /data/misc/wifi/wpa_supplicant.conf -e /data/misc/wifi/entropy.bin
