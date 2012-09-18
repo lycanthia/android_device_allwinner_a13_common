@@ -37,7 +37,7 @@ LOCAL_C_INCLUDES += \
 	external/jpeg \
 	external/skia/include/core \
 	frameworks/base/core/jni/android/graphics \
-	device/allwinner/a13/include \
+	device/allwinner/a13/libraries/include \
 	external/cedarx/CedarX/include/include_camera \
 
 LOCAL_SRC_FILES := \
