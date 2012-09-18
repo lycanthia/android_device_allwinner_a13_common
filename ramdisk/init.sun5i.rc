@@ -121,6 +121,12 @@ service hciattach /system/bin/hciattach -n -s 115200 /dev/ttyS1 rda 1500000
     disabled
     oneshot	
 
+#Sensors support
+service memsicd /system/bin/logwrapper /system/bin/memsicd 
+    class main    
+    disabled
+    oneshot
+    
 # adb over network
 on property:service.adb.tcp.port=5555
     stop adbd
