@@ -24,6 +24,7 @@
 /dev/ace_dev              0666   system     system 
 /dev/ump		  0777   system	    graphics
 /dev/mali		  0777   system	    graphics
+/dev/ump		  0777   system     graphics
 /dev/graphics/*           0660   root       graphics
 /dev/video0		  0777   system	    system
 /dev/snd/pcmC0D0c 	  0777   system     system
