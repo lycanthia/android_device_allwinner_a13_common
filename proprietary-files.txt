@@ -123,7 +123,6 @@ lib/egl/libEGL_mali.so
 lib/egl/libGLESv1_CM_mali.so
 lib/egl/libGLESv2_mali.so
 
-bin/u3gmonitor
 bin/fsck.exfat
 bin/hostapd
 bin/hostapd_cli
